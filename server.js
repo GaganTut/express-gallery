@@ -1,6 +1,6 @@
 /*jshint esversion: 6*/
 const express = require('express');
-const galleryRoute = require('./routes/galery.js');
+const galleryRoute = require('./routes/galleryRoutes.js');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
