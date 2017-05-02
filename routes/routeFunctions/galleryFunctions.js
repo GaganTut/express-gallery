@@ -5,29 +5,34 @@ module.exports = (() => {
   const renderFullGallery = (req, res) => {
     GalleryDB.findAll()
       .then(data => {
-        console.log(data);
-        res.render('home', data);
+        res.render('home', createObject(data));
       })
-      .catch(console.log);
+      .catch(err => {
+        console.log(err);
+        res.render('error404');
+      });
   };
 
   const addNewToGallery = (req, res) => {
     GalleryDB.create({
-      title: 'Whatever',
-      imgUrl: 'www.google.com',
-      description: 'Whatever WHatevre Whatever',
-      author: 'Myself'
+      title: 'anything',
+      imgUrl: 'www.amazon.com',
+      description: 'erherthehteht WHatevre Whatever',
+      author: 'no One'
     })
       .then(res.redirect('/'))
-      .catch(console.log);
+      .catch(err => {
+        console.log(err);
+        res.redirect('/new');
+      });
   };
 
   const renderNewForm = (req, res) => {
-
+    res.render('newPhotoForm');
   };
 
   const renderEditForm = (req, res) => {
-
+    res.render('newPhotoForm', req.body);
   };
 
   const renderSinglePhoto = (req, res) => {
@@ -52,3 +57,10 @@ module.exports = (() => {
     destroyPhoto
   };
 })();
+
+const createObject = (data) => {
+  return {photos: data.reduce((prev, curr) => {
+    prev.push(curr.dataValues);
+    return prev;
+  },[])};
+};

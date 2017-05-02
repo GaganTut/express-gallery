@@ -1,0 +1,27 @@
+<div class="main-page-header">
+  <div>
+    <h1>_ARCHITEKT</h1>
+    <p>Welcome to our online portfolio, we are a small group of passionate designers and architects, looking to change and create amazing digital images to inspire others to follow in our innovative steps. Free Architect WordPress Theme</p>
+  </div>
+  <img src="#">
+</div>
+
+{{#unless photos}}
+  <div class="notFound">NO PHOTOS IN GALLERY</div>
+{{/unless}}
+
+{{#each photos}}
+  <div class="listView">
+    <h2>Title: {{title}}</h2>
+    <p>Author: {{author}}</p>
+    <img src="{{imgUrl}}">
+    <p>Created: {{createdAt}}</p>
+    <p>Updated: {{updatedAt}}</p>
+    <p>{{desciption}}</p>
+    <form action="/gallery/{{id}}" method="get" accept-charset="utf-8">
+      <button type="submit">Go To Photo</button>
+    </form>
+  </div>
+{{/each}}
+
+<a href="/gallery/new" class='linkButtons'>Add New Photo</a>

@@ -23,6 +23,8 @@
     "express": "^4.15.2",
     "express-handlebars": "^3.0.0",
     "method-override": "^2.3.8",
+    "pg": "^6.1.5",
+    "pg-hstore": "^2.3.2",
     "sequelize": "^3.30.4"
   },
   "devDependencies": {

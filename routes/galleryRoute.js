@@ -5,24 +5,24 @@ const router = express.Router();
 
 router.route('/')
   .get((req, res) => {
-    galleryFunctions.getFullGallery(req, res);
+    galleryFunctions.renderFullGallery(req, res);
   })
   .post((req, res) => {
-    galleryFunctions.artPost(req, res);
+    galleryFunctions.addNewToGallery(req, res);
   });
 
 router.route('/new')
   .get((req, res) => {
-    res.redirectToNewForm('GalleryViews/newPhoto');
+    res.renderNewForm('GalleryViews/newPhoto');
   });
 
 router.get('/:id/edit', (req, res) => {
-  galleryFunctions.redirectToEditForm(req, res);
+  galleryFunctions.renderEditForm(req, res);
 });
 
 router.route('/:id')
   .get((req, res) => {
-    galleryFunctions.getSinglePhoto(req, res);
+    galleryFunctions.renderSinglePhoto(req, res);
   })
   .put((req,res) => {
     galleryFunctions.editPhoto(req, res);
@@ -30,3 +30,5 @@ router.route('/:id')
   .delete((req, res) => {
     galleryFunctions.destroyPhoto(req, res);
   });
+
+module.exports = router;

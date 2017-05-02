@@ -1,9 +1,10 @@
 /*jshint esversion: 6*/
 const express = require('express');
-const galleryRoute = require('./routes/galleryRoutes.js');
+const galleryRoute = require('./routes/galleryRoute.js');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const db = require('./models');
 const app = express();
 const PORT = process.env.PORT || 8888;
 
@@ -22,10 +23,13 @@ app.use(express.static('public'));
 app.use('/gallery', galleryRoute);
 
 app.get('/',(req, res) => {
-  res.render('home');
+  res.redirect('/gallery');
 });
 
 app.get('*', function(req, res){
   res.render('error404');
 });
 
+app.listen(PORT, () => {
+  db.sequelize.sync();
+});
