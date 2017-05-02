@@ -5,7 +5,7 @@ const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const app = express();
-const PORT = 8888;
+const PORT = process.env.PORT || 8888;
 
 const hbs = exphbs.create({
   extname: '.hbs',
@@ -14,9 +14,9 @@ const hbs = exphbs.create({
 
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
-app.use(analyticsLog);
 
 app.use(express.static('public'));
 app.use('/gallery', galleryRoute);
