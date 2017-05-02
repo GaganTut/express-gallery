@@ -8,18 +8,28 @@ module.exports = (() => {
     },[])};
   };
 
-  const prepareForRender = (data) => {
+  const prepareDBRender = (data) => {
     return {
-      id: data.id,
-      title: data.title,
-      imgUrl: data.imgUrl,
-      description: data.description,
-      author: data.author
+      id: data[0].dataValues.id,
+      title: data[0].dataValues.title,
+      imgUrl: data[0].dataValues.imgUrl,
+      description: data[0].dataValues.description,
+      author: data[0].dataValues.author
+    };
+  };
+  const prepareBodyRender = (body) => {
+    return {
+      id: body.id,
+      title: body.title,
+      imgUrl: body.imgUrl,
+      description: body.description,
+      author: body.author
     };
   };
 
   return {
     createObjectList,
-    prepareForRender
+    prepareDBRender,
+    prepareBodyRender
   };
 })();

@@ -1,0 +1,17 @@
+
+<div class="single-view">
+  <h1 class="title-name">{{title}}</h1>
+  <h3 class="author">By: {{author}}</h3>
+  <img src="{{imgUrl}}">
+  <p class="article-body">{{description}}</p>
+</div>
+
+<div class="single-forms">
+  <form action="/gallery/{{id}}/edit" method="get" accept-charset="utf-8">
+    <button type='submit'>EDIT PHOTO INFO</button>
+  </form>
+
+  <form action="/gallery" method="get" accept-charset="utf-8">
+    <button type='submit'>Back to Gallery</button>
+  </form>
+</div>

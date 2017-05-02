@@ -15,7 +15,7 @@ module.exports = (() => {
   };
 
   const addNewToGallery = (req, res) => {
-    galDB.postNewPhoto(rebuildObject(req.body))
+    galDB.postNewPhoto(req.body)
       .then(res.redirect('/'))
       .catch(err => {
         console.log(err);
@@ -28,19 +28,29 @@ module.exports = (() => {
   };
 
   const renderEditForm = (req, res) => {
-    res.render('GalleryViews/newPhotoForm', rebuildObject(req.body));
+    galDB.getPhotoById(req.params.id)
+      .then(data => {
+        res.render('GalleryViews/editPhotoForm', helper.prepareDBRender(data));
+      });
   };
 
   const renderSinglePhoto = (req, res) => {
-    galDB.getPhotoById(req.params.id);
+    galDB.getPhotoById(req.params.id)
+      .then(data => {
+        res.render('GalleryViews/singlePhoto', helper.prepareDBRender(data));
+      });
   };
 
   const editPhoto = (req, res) => {
-    galDB.updatePhotoById(req.params.id, rebuildObject(req.body));
+    galDB.updatePhotoById(req.params.id, req.body)
+      .then(res.redirect(`/gallery/${req.params.id}`))
+      .catch(console.log);
   };
 
   const destroyPhoto = (req, res) => {
-    galDB.deletePhotoById(req.params.id);
+    galDB.deletePhotoById(req.body.id)
+      .then(res.redirect('/'))
+      .catch(res.redirect('/gallery/new'));
   };
 
   return {
