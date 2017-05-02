@@ -13,7 +13,7 @@ router.route('/')
 
 router.route('/new')
   .get((req, res) => {
-    res.renderNewForm('GalleryViews/newPhoto');
+    galleryFunctions.renderNewForm(req, res);
   });
 
 router.get('/:id/edit', (req, res) => {

@@ -1,0 +1,17 @@
+<div class="sub-titles">
+  <h1>Update Image Data</h1>
+</div>
+<div class="edit-page">
+  <form action="/gallery/{{id}}?_method=PUT" method="post">
+    Title: <input type="text" name="title" value='{{title}}'><br>
+    Author: <input type="text" name="author" value='{{author}}'><br>
+    Description: <input type="textarea" name="description" value='{{description}}'><br>
+    Image Link: <input type="textarea" name="imgUrl" value='{{imgUrl}}'><br>
+    <input type="submit" value="Submit">
+  </form>
+
+  <form action="/gallery/{{id}}?_method=DELETE" method="post">
+    Type title to confirm delete: <input type="text" name="id"><br>
+    <input type="submit" value="DELETE ARTICLE">
+  </form>
+</div>

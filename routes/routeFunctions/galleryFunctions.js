@@ -1,9 +1,10 @@
 /*jshint esversion: 6*/
-const GalleryDB = require('../../models').Gallery;
+const galDB = require('./DBFunctions.js');
+const helper = require('./helperFunctions.js');
 
 module.exports = (() => {
   const renderFullGallery = (req, res) => {
-    GalleryDB.findAll()
+    galDB.getAllPhotos()
       .then(data => {
         res.render('home', createObject(data));
       })
@@ -14,12 +15,7 @@ module.exports = (() => {
   };
 
   const addNewToGallery = (req, res) => {
-    GalleryDB.create({
-      title: 'anything',
-      imgUrl: 'www.amazon.com',
-      description: 'erherthehteht WHatevre Whatever',
-      author: 'no One'
-    })
+    galDB.postNewPhoto(rebuildObject(req.body))
       .then(res.redirect('/'))
       .catch(err => {
         console.log(err);
@@ -28,23 +24,23 @@ module.exports = (() => {
   };
 
   const renderNewForm = (req, res) => {
-    res.render('newPhotoForm');
+    res.render('GalleryViews/newPhotoForm');
   };
 
   const renderEditForm = (req, res) => {
-    res.render('newPhotoForm', req.body);
+    res.render('GalleryViews/newPhotoForm', rebuildObject(req.body));
   };
 
   const renderSinglePhoto = (req, res) => {
-
+    galDB.getPhotoById(req.params.id);
   };
 
   const editPhoto = (req, res) => {
-
+    galDB.updatePhotoById(req.params.id, rebuildObject(req.body));
   };
 
   const destroyPhoto = (req, res) => {
-
+    galDB.deletePhotoById(req.params.id);
   };
 
   return {
@@ -63,4 +59,13 @@ const createObject = (data) => {
     prev.push(curr.dataValues);
     return prev;
   },[])};
+};
+
+const rebuildObject = (data) => {
+  return {
+    title: data.title,
+    imgUrl: data.imgUrl,
+    description: data.description,
+    author: data.author
+  };
 };
