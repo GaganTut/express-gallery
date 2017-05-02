@@ -7,14 +7,30 @@ body {
   width: 100%;
 
   .main-page-header {
-    border-top: solid 1px black;
+    border-bottom: dotted 1px black;
+    border-top: dotted 1px black;
     display: flex;
-    flex-flow: column;
-    width: 70%;
+    flex-direction: column;
+    margin: 5% 0 1% 0;
+    padding: 2% 0 1% 0;
+    width: 80%;
 
     .header-text {
       display: flex;
+      padding: 0 0 3% 0;
       width: 100%;
+
+      h1 {
+        border-right: solid 1px black;;
+        font-size: 350%;
+        text-align: center;
+        width: 50%;
+      }
+
+      p {
+        padding-left: 1%;
+        width: 50%;
+      }
     }
 
     .header-photo {
@@ -24,5 +40,29 @@ body {
         width: 100%;
       }
     }
+  }
+
+  .allPhotos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%;
+
+    .listView {
+      width: 32%;
+
+      .each-photo {
+        height: 500%;
+        width: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain; // this can also be cover
+      }
+    }
+  }
+
+  .new-link {
+    width: 80%;
   }
 }

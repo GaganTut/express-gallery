@@ -2,7 +2,7 @@
    v2.0 | 20110126
    License: none (public domain)
 */
-@import url("https://fonts.googleapis.com/css?family=Bree+Serif");
+@import url("https://fonts.googleapis.com/css?family=EB+Garamond");
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
@@ -51,17 +51,45 @@ body {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
-  font-family: "Bree Serif";
+  font-family: "EB Garamond", serif;
   width: 100%; }
   body .main-page-header {
-    border-top: solid 1px black;
+    border-bottom: dotted 1px black;
+    border-top: dotted 1px black;
     display: flex;
-    flex-flow: column;
-    width: 70%; }
+    flex-direction: column;
+    margin: 5% 0 1% 0;
+    padding: 2% 0 1% 0;
+    width: 80%; }
     body .main-page-header .header-text {
       display: flex;
+      padding: 0 0 3% 0;
       width: 100%; }
+      body .main-page-header .header-text h1 {
+        border-right: solid 1px black;
+        font-size: 350%;
+        text-align: center;
+        width: 50%; }
+      body .main-page-header .header-text p {
+        padding-left: 1%;
+        width: 50%; }
     body .main-page-header .header-photo {
       width: 100%; }
       body .main-page-header .header-photo img {
         width: 100%; }
+  body .allPhotos {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 80%; }
+    body .allPhotos .listView {
+      width: 32%; }
+      body .allPhotos .listView .each-photo {
+        height: 500%;
+        width: 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-size: contain; }
+  body .new-link {
+    width: 80%; }

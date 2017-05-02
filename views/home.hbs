@@ -12,18 +12,15 @@
   <div class="notFound">NO PHOTOS IN GALLERY</div>
 {{/unless}}
 
-{{#each photos}}
-  <div class="listView">
-    <h2>Title: {{title}}</h2>
-    <p>Author: {{author}}</p>
-    <img src="{{imgUrl}}">
-    <p>Created: {{createdAt}}</p>
-    <p>Updated: {{updatedAt}}</p>
-    <p>{{desciption}}</p>
-    <form action="/gallery/{{id}}" method="get" accept-charset="utf-8">
-      <button type="submit">Go To Photo</button>
-    </form>
-  </div>
-{{/each}}
+<div class="allPhotos">
+  {{#each photos}}
+    <div class="listView">
+      <a href="/gallery/{{id}}" class='linkButtons'><div class='each-photo' style="background: url({{imgUrl}})"></div></a>
+      <h2>Title: {{title}} - Author: {{author}}</h2>
+    </div>
+  {{/each}}
+</div>
 
-<a href="/gallery/new" class='linkButtons'>Add New Photo</a>
+<div class="new-link">
+  <a href="/gallery/new" class='linkButtons'>Add New Photo</a>
+</div>
