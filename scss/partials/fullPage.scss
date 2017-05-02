@@ -1,0 +1,28 @@
+body {
+  background-color: $backColor;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  font-family: $basefont;
+  width: 100%;
+
+  .main-page-header {
+    border-top: solid 1px black;
+    display: flex;
+    flex-flow: column;
+    width: 70%;
+
+    .header-text {
+      display: flex;
+      width: 100%;
+    }
+
+    .header-photo {
+      width: 100%;
+
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
