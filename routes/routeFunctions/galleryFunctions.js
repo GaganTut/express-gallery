@@ -6,7 +6,7 @@ module.exports = (() => {
   const renderFullGallery = (req, res) => {
     galDB.getAllPhotos()
       .then(data => {
-        res.render('home', createObject(data));
+        res.render('home', helper.createObjectList(data));
       })
       .catch(err => {
         console.log(err);
@@ -53,19 +53,3 @@ module.exports = (() => {
     destroyPhoto
   };
 })();
-
-const createObject = (data) => {
-  return {photos: data.reduce((prev, curr) => {
-    prev.push(curr.dataValues);
-    return prev;
-  },[])};
-};
-
-const rebuildObject = (data) => {
-  return {
-    title: data.title,
-    imgUrl: data.imgUrl,
-    description: data.description,
-    author: data.author
-  };
-};
