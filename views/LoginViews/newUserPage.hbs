@@ -1,0 +1,15 @@
+<div class="new-user-title">
+  <h1>Create Username and Password</h1>
+</div>
+
+<div class="new-user-page">
+    <form lpformnum="2" action="/user/new" method="post">
+      First Name: <input type="text" name="firstName"><br>
+      Last Name: <input type="text" name="lastName"><br>
+      Username: <input type="text" name="username"><br>
+      Password: <input type="password" name="password" id="pass1"><br>
+      Confirm Password: <input type="password" name="passVerif" id="pass2" onkeyup="checkPass(); return false;"><br>
+      <span id="confirmMessage" class="confirmMessage"></span>
+        <input type="submit" value="Submit">
+    </form>
+</div>
