@@ -104,6 +104,27 @@ body {
       padding: 2% 0;
       text-align: center;
       width: 100%; }
-  body .single-view {
+
+body .single-view {
+  display: flex;
+  justify-content: space-between;
+  width: 80%; }
+  body .single-view .current-photo-info {
     display: flex;
-    width: 80%; }
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 70%; }
+    body .single-view .current-photo-info .single-header {
+      width: 100%; }
+    body .single-view .current-photo-info .single-photo {
+      padding-bottom: 80%;
+      width: 100%; }
+    body .single-view .current-photo-info .article-body {
+      width: 100%; }
+  body .single-view .otherPhotos {
+    width: 25%; }
+    body .single-view .otherPhotos .sidelist {
+      width: 100%; }
+      body .single-view .otherPhotos .sidelist .side-photos {
+        padding-bottom: 80%;
+        width: 100%; }

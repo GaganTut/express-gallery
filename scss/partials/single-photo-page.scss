@@ -1,0 +1,39 @@
+body {
+  .single-view {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+
+    .current-photo-info {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      width: 70%;
+
+      .single-header {
+        width: 100%;
+      }
+      .single-photo {
+        padding-bottom: 80%;
+        width: 100%;
+      }
+      .article-body {
+        width: 100%;
+      }
+    }
+
+    .otherPhotos {
+      width: 25%;
+
+      .sidelist {
+        width: 100%;
+
+        .side-photos {
+          padding-bottom: 80%;
+          width: 100%;
+        }
+      }
+    }
+
+  }
+}
