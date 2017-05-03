@@ -15,7 +15,7 @@
 <div class="allPhotos">
   {{#each photos}}
     <div class="listView">
-      <a href="/gallery/{{id}}" class='linkButtons'><div class='each-photo' style="background: url({{imgUrl}})"></div></a>
+      <a href="/gallery/{{id}}" class='linkButtons'><div class='each-photo' style="background: url({{imgUrl}}) no-repeat center; background-size: cover;"></div></a>
       <h2>Title: {{title}} - Author: {{author}}</h2>
     </div>
   {{/each}}
