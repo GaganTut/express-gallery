@@ -47,8 +47,8 @@ table {
   border-spacing: 0; }
 
 body {
-  background-color: #FFFFFF;
-  color: silver;
+  background: url("../assets/backG.png");
+  color: white;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -67,11 +67,11 @@ body {
       padding: 0 0 3% 0;
       width: 100%; }
       body .main-page-header .header-text h1 {
-        border-right: solid 1px black;
         font-size: 400%;
         text-align: center;
         width: 50%; }
       body .main-page-header .header-text p {
+        border-left: solid 1px black;
         font-size: 100%;
         line-height: 125%;
         padding-left: 5%;
@@ -99,8 +99,11 @@ body {
   body .new-link {
     width: 80%; }
     body .new-link .addNew {
-      background-color: silver;
+      background-color: rgba(255, 255, 255, 0.5);
       font-size: 200%;
       padding: 2% 0;
       text-align: center;
       width: 100%; }
+  body .single-view {
+    display: flex;
+    width: 80%; }

@@ -1,5 +1,5 @@
 body {
-  background-color: $backColor;
+  background: url('../assets/backG.png');
   color: $fontColor;
   display: flex;
   flex-flow: row wrap;
@@ -22,13 +22,13 @@ body {
       width: 100%;
 
       h1 {
-        border-right: solid 1px black;;
         font-size: 400%;
         text-align: center;
         width: 50%;
       }
 
       p {
+        border-left: solid 1px black;
         font-size: 100%;
         line-height: 125%;
         padding-left: 5%;
@@ -73,11 +73,17 @@ body {
     width: 80%;
 
     .addNew {
-      background-color: $fontColor;
+      background-color: rgba(255,255,255,0.5);
       font-size: 200%;
       padding: 2% 0;
       text-align: center;
       width: 100%;
     }
+  }
+
+  .single-view {
+    display: flex;
+    width: 80%;
+
   }
 }
