@@ -1,5 +1,6 @@
 body {
   background-color: $backColor;
+  color: $fontColor;
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
@@ -53,6 +54,8 @@ body {
 
     .listView {
       width: 32%;
+      border-bottom: solid black 1px;
+      margin-bottom: 1%;
 
       .each-photo {
         width: 100%;
@@ -61,11 +64,20 @@ body {
 
       h2 {
         padding-top: 10%;
+        padding-bottom: 10%;
       }
     }
   }
 
   .new-link {
     width: 80%;
+
+    .addNew {
+      background-color: $fontColor;
+      font-size: 200%;
+      padding: 2% 0;
+      text-align: center;
+      width: 100%;
+    }
   }
 }
