@@ -6,7 +6,7 @@ module.exports = (() => {
   const renderFullGallery = (req, res) => {
     galDB.getAllPhotos()
       .then(data => {
-        res.render('home', helper.createObjectList(data));
+        res.render('home', {photos: helper.createObjectList(data)});
       })
       .catch(err => {
         console.log(err);
@@ -35,10 +35,11 @@ module.exports = (() => {
   };
 
   const renderSinglePhoto = (req, res) => {
-    galDB.getPhotoById(req.params.id)
+    Promise.all([galDB.getPhotoById(req.params.id), galDB.getAllPhotos()])
       .then(data => {
-        res.render('GalleryViews/singlePhoto', helper.prepareDBRender(data));
-      });
+        res.render('GalleryViews/singlePhoto', {single: helper.prepareDBRender(data[0]), photos: helper.createObjectList(data[1])});
+      })
+      .catch(console.log);
   };
 
   const editPhoto = (req, res) => {

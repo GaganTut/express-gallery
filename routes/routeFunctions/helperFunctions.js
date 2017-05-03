@@ -2,10 +2,10 @@
 
 module.exports = (() => {
   const createObjectList = (data) => {
-    return {photos: data.reduce((prev, curr) => {
+    return data.reduce((prev, curr) => {
       prev.push(curr.dataValues);
       return prev;
-    },[])};
+    },[]);
   };
 
   const prepareDBRender = (data) => {

@@ -8,7 +8,7 @@
   <div class="otherPhotos">
     {{#each photos}}
       <div class="sidelist">
-        <a href="/gallery/{{id}}" class='linkButtons'><div class='each-photo' style="background: url({{imgUrl}}) no-repeat center; background-size: cover;"></div></a>
+        <a href="/gallery/{{id}}"><div class='side-photos' style="background: url({{imgUrl}}) no-repeat center; background-size: cover;"></div></a>
         <h3>Title: {{title}} - Author: {{author}}</h3>
       </div>
     {{/each}}
