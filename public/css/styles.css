@@ -84,6 +84,8 @@ body {
       align-items: center;
       display: flex;
       justify-content: space-around; }
+    body .login-bar .welcome-user {
+      text-align: center; }
   body .header-photo {
     border-bottom: dotted 1px black;
     margin-bottom: 2%;

@@ -47,7 +47,6 @@ module.exports = (() => {
   };
 
   const prepareAdd = (req) => {
-    console.log(req.user);
     return {
       title: req.body.title,
       imgUrl: req.body.imgUrl,
