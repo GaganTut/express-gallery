@@ -55,7 +55,6 @@ body {
   font-family: "Oswald", serif;
   width: 100%; }
   body .main-page-header {
-    border-bottom: dotted 1px black;
     border-top: dotted 1px black;
     display: flex;
     flex-direction: column;
@@ -76,10 +75,11 @@ body {
         line-height: 125%;
         padding-left: 5%;
         width: 50%; }
-    body .main-page-header .header-photo {
+  body .header-photo {
+    border-bottom: dotted 1px black;
+    width: 80%; }
+    body .header-photo img {
       width: 100%; }
-      body .main-page-header .header-photo img {
-        width: 100%; }
   body .allPhotos {
     display: flex;
     flex-direction: row;

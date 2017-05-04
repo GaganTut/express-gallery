@@ -35,7 +35,6 @@ const hbs = exphbs.create({
 app.engine('hbs', hbs.engine);
 app.set('view engine', 'hbs');
 
-
 app.use(session({
   store: new RedisStore(),
   secret: 'this_can_be_anything_so_i_wrote_this',
@@ -47,14 +46,12 @@ app.use(passport.session());
 
 passport.use(new LocalStrategy (
   (username, password, done) => {
-    console.log('runs before serializing');
     User.findOne({
       where: {
         username: username
       }})
       .then ( user => {
         if (user === null) {
-          console.log('user failed');
           return done(null, false, {message: 'Login Failed - Wrong Input'});
         } else {
           bcrypt.compare(password, user.password).then(res => {
@@ -84,6 +81,7 @@ app.use(express.static('public'));
 app.use('/gallery', galleryRoute);
 
 app.get('/',(req, res) => {
+  console.log(req.isAuthenticated());
   res.redirect('/login');
 });
 
@@ -96,7 +94,7 @@ app.get('/login', (req, res) => {
 });
 
 app.post('/login', passport.authenticate('local', {
-  successRedirect: '/gallery',
+  successRedirect: '/',
   failureRedirect: '/login'
 }));
 
@@ -116,15 +114,6 @@ app.post('/user/new', (req, res) => {
     });
   });
 });
-
-// secure routes
-function isAuthenticated (req, res, next) {
-  if(req.isAuthenticated()) {
-    next();
-  }else {
-    res.redirect('/login');
-  }
-}
 
 app.get('*', function(req, res){
   res.render('error404');

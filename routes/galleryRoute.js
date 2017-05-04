@@ -1,13 +1,14 @@
 /*jshint esversion: 6*/
 const express = require('express');
 const galleryFunctions = require('./routeFunctions/galleryFunctions');
+const helper = require('./routeFunctions/helperFunctions');
 const router = express.Router();
 
 router.route('/')
   .get((req, res) => {
     galleryFunctions.renderFullGallery(req, res);
   })
-  .post((req, res) => {
+  .post(helper.checkAuth, (req, res) => {
     galleryFunctions.addNewToGallery(req, res);
   });
 
@@ -24,10 +25,10 @@ router.route('/:id')
   .get((req, res) => {
     galleryFunctions.renderSinglePhoto(req, res);
   })
-  .put((req,res) => {
+  .put(helper.checkAuth, (req,res) => {
     galleryFunctions.editPhoto(req, res);
   })
-  .delete((req, res) => {
+  .delete(helper.checkAuth, (req, res) => {
     galleryFunctions.destroyPhoto(req, res);
   });
 

@@ -6,7 +6,8 @@ module.exports = (() => {
   const renderFullGallery = (req, res) => {
     galDB.getAllPhotos()
       .then(data => {
-        res.render('home', {photos: helper.createObjectList(data)});
+        console.log(req.isAuthenticated());
+        res.render('home', {photos: helper.createObjectList(data), login: helper.createLoginObject(req)});
       })
       .catch(err => {
         console.log(err);
@@ -24,20 +25,20 @@ module.exports = (() => {
   };
 
   const renderNewForm = (req, res) => {
-    res.render('GalleryViews/newPhotoForm');
+    res.render('GalleryViews/newPhotoForm', {login: helper.createLoginObject(req)});
   };
 
   const renderEditForm = (req, res) => {
     galDB.getPhotoById(req.params.id)
       .then(data => {
-        res.render('GalleryViews/editPhotoForm', helper.prepareDBRender(data));
+        res.render('GalleryViews/editPhotoForm', {single: helper.prepareDBRender(data), login: helper.createLoginObject(req)});
       });
   };
 
   const renderSinglePhoto = (req, res) => {
     Promise.all([galDB.getPhotoById(req.params.id), galDB.getAllPhotos()])
       .then(data => {
-        res.render('GalleryViews/singlePhoto', {single: helper.prepareDBRender(data[0]), photos: helper.createObjectList(data[1])});
+        res.render('GalleryViews/singlePhoto', {single: helper.prepareDBRender(data[0]), photos: helper.createObjectList(data[1]), login: helper.createLoginObject(req)});
       })
       .catch(console.log);
   };

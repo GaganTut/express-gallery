@@ -8,7 +8,6 @@ body {
   width: 100%;
 
   .main-page-header {
-    border-bottom: dotted 1px black;
     border-top: dotted 1px black;
     display: flex;
     flex-direction: column;
@@ -35,13 +34,14 @@ body {
         width: 50%;
       }
     }
+  }
 
-    .header-photo {
+  .header-photo {
+    border-bottom: dotted 1px black;
+    width: 80%;
+
+    img {
       width: 100%;
-
-      img {
-        width: 100%;
-      }
     }
   }
 

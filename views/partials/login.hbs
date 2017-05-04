@@ -1,0 +1,19 @@
+
+{{#unless login}}
+  <div class="login-bar">
+    <form action="/login" method="post">
+      Username: <input type="text" name="username"><br>
+      Password: <input type="password" name="password"><br>
+      <input type="submit" value="Submit">
+    </form>
+    <a href="/login/new">Create New User</a>
+  </div>
+{{/unless}}
+
+{{#if login}}
+  <div class="login-bar">
+    <p>
+      Hi {{login.firstname}} {{login.lastname}}<br>
+    </p>
+  </div>
+{{/if}}

@@ -27,9 +27,32 @@ module.exports = (() => {
     };
   };
 
+  const checkAuth = (req, res, next) => {
+    if(req.isAuthenticated()) {
+      next();
+    } else {
+      res.redirect('/login');
+    }
+  };
+
+  const createLoginObject = (req) => {
+    console.log(req.isAuthenticated());
+    if (req.isAuthenticated()) {
+      console.log(req);
+      return {
+        req
+      };
+    } else {
+      console.log('not working');
+      return false;
+    }
+  };
+
   return {
     createObjectList,
     prepareDBRender,
-    prepareBodyRender
+    prepareBodyRender,
+    checkAuth,
+    createLoginObject
   };
 })();
