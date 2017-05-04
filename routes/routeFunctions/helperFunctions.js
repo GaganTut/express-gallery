@@ -14,16 +14,16 @@ module.exports = (() => {
       title: data[0].dataValues.title,
       imgUrl: data[0].dataValues.imgUrl,
       description: data[0].dataValues.description,
-      author: data[0].dataValues.author
+      username: data[0].dataValues.username
     };
   };
-  const prepareBodyRender = (body) => {
+  const prepareBodyRender = (data) => {
     return {
-      id: body.id,
-      title: body.title,
-      imgUrl: body.imgUrl,
-      description: body.description,
-      author: body.author
+      id: data.id,
+      title: data.title,
+      imgUrl: data.imgUrl,
+      description: data.description,
+      username: data.username
     };
   };
 
@@ -36,16 +36,24 @@ module.exports = (() => {
   };
 
   const createLoginObject = (req) => {
-    console.log(req.isAuthenticated());
     if (req.isAuthenticated()) {
-      console.log(req);
+      console.log(req.user);
       return {
-        req
+        firstname: req.user.firstname
       };
     } else {
-      console.log('not working');
       return false;
     }
+  };
+
+  const prepareAdd = (req) => {
+    console.log(req.user);
+    return {
+      title: req.body.title,
+      imgUrl: req.body.imgUrl,
+      description: req.body.description,
+      username: req.user.username
+    };
   };
 
   return {
@@ -53,6 +61,7 @@ module.exports = (() => {
     prepareDBRender,
     prepareBodyRender,
     checkAuth,
-    createLoginObject
+    createLoginObject,
+    prepareAdd
   };
 })();

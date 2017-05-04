@@ -1,6 +1,6 @@
 <div class="single-view">
   <div class="current-photo-info">
-    <h1 class="single-header">{{single.title}} - {{single.author}}</h1>
+    <h1 class="single-header">{{single.title}} - {{single.username}}</h1>
     <div class='single-photo' style="background: url({{single.imgUrl}}) no-repeat center; background-size: cover;"></div>
     <p class="article-body">{{single.description}}</p>
   </div>
@@ -9,7 +9,7 @@
     {{#each photos}}
       <div class="sidelist">
         <a href="/gallery/{{id}}"><div class='side-photos' style="background: url({{imgUrl}}) no-repeat center; background-size: cover;"></div></a>
-        <h3>Title: {{title}} - Author: {{author}}</h3>
+        <h3>Title: {{title}} - Author: {{username}}</h3>
       </div>
     {{/each}}
   </div>

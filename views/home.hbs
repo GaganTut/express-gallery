@@ -1,5 +1,5 @@
 <div class="header-photo">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/1/1f/Hawaii_Maui_Makena_Big_Beach_%2822649774315%29.jpg">
+  <img src="http://ywamassociates.com/files/9714/7204/6832/Wide_ocean.jpg">
 </div>
 {{#unless photos}}
   <div class="notFound">NO PHOTOS IN GALLERY</div>
@@ -9,7 +9,7 @@
   {{#each photos}}
     <div class="listView">
       <a href="/gallery/{{id}}" class='linkButtons'><div class='each-photo' style="background: url({{imgUrl}}) no-repeat center; background-size: cover;"></div></a>
-      <h2>Title: {{title}} - Author: {{author}}</h2>
+      <h2>Title: {{title}} - Author: {{username}}</h2>
     </div>
   {{/each}}
 </div>

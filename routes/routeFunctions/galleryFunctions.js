@@ -16,7 +16,7 @@ module.exports = (() => {
   };
 
   const addNewToGallery = (req, res) => {
-    galDB.postNewPhoto(req.body)
+    galDB.postNewPhoto(helper.prepareAdd(req))
       .then(res.redirect('/'))
       .catch(err => {
         console.log(err);

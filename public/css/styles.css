@@ -55,15 +55,15 @@ body {
   font-family: "Oswald", serif;
   width: 100%; }
   body .main-page-header {
+    background-color: rgba(0, 0, 0, 0.2);
     border-top: dotted 1px black;
     display: flex;
     flex-direction: column;
     margin: 5% 0 1% 0;
-    padding: 2% 0 1% 0;
+    padding: 2% 0 2% 0;
     width: 80%; }
     body .main-page-header .header-text {
       display: flex;
-      padding: 0 0 3% 0;
       width: 100%; }
       body .main-page-header .header-text h1 {
         font-size: 400%;
@@ -75,11 +75,29 @@ body {
         line-height: 125%;
         padding-left: 5%;
         width: 50%; }
+  body .login-bar {
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 0 1% 0;
+    padding: 1% 0;
+    width: 80%; }
+    body .login-bar .form-div {
+      align-items: center;
+      display: flex;
+      justify-content: space-around; }
   body .header-photo {
     border-bottom: dotted 1px black;
+    margin-bottom: 2%;
+    padding-bottom: 1%;
     width: 80%; }
     body .header-photo img {
       width: 100%; }
+  body .notFound {
+    background-color: rgba(255, 0, 0, 0.1);
+    font-size: 200%;
+    margin-bottom: 3%;
+    padding: 2% 0;
+    text-align: center;
+    width: 80%; }
   body .allPhotos {
     display: flex;
     flex-direction: row;
@@ -101,9 +119,21 @@ body {
     body .new-link .addNew {
       background-color: rgba(255, 255, 255, 0.5);
       font-size: 200%;
+      margin-bottom: 5%;
       padding: 2% 0;
       text-align: center;
       width: 100%; }
+  body .sub-titles {
+    font-size: 500%;
+    padding-bottom: 5%;
+    text-align: center;
+    width: 80%; }
+  body .newPage {
+    text-align: center;
+    width: 80%; }
+    body .newPage input {
+      font-size: 40px;
+      margin-bottom: 1%; }
 
 body .single-view {
   display: flex;

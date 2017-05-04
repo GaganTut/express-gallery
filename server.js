@@ -2,9 +2,11 @@
 const path = require('path');
 const express = require('express');
 const galleryRoute = require('./routes/galleryRoute.js');
+const loginRoute = require('./routes/loginRoute.js');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
+const cookieParser = require('cookie-parser');
 
 //passport
 const passport = require('passport');
@@ -24,6 +26,7 @@ const { User } = require('./models');
 
 const app = express();
 const PORT = process.env.PORT || 8888;
+app.use(cookieParser());
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
@@ -41,6 +44,7 @@ app.use(session({
   resave: false,
   saveUninitialized: true
 }));
+
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -69,42 +73,45 @@ passport.use(new LocalStrategy (
     }
 ));
 
-passport.serializeUser((user, done) => {
+passport.serializeUser(function(user, done) {
   return done(null, {
     id: user.id,
-    username: user.username
+    username: user.username,
+    firstname: user.firstname
+  });
+});
+
+passport.deserializeUser(function(user, done) {
+  User.findOne({
+    where: {
+      id: user.id
+    }
+  }).then(user => {
+    return done(null, {
+      id: user.id,
+      username: user.username,
+      firstname: user.firstname
+    });
   });
 });
 
 app.use(express.static('public'));
 
 app.use('/gallery', galleryRoute);
+app.use('/login', loginRoute);
 
 app.get('/',(req, res) => {
-  console.log(req.isAuthenticated());
-  res.redirect('/login');
+  res.redirect('/gallery');
 });
-
-app.get('/login/new', (req, res) => {
-  res.render('LoginViews/newUserPage');
-});
-
-app.get('/login', (req, res) => {
-  res.render('LoginViews/loginPage');
-});
-
-app.post('/login', passport.authenticate('local', {
-  successRedirect: '/',
-  failureRedirect: '/login'
-}));
 
 // new user section
 app.post('/user/new', (req, res) => {
   bcrypt.genSalt(saltRounds, function(err, salt) {
     bcrypt.hash(req.body.password, salt, function(err, hash) {
+      console.log(req.body);
       User.create({
-        firstname: req.body.firstName,
-        lastname: req.body.lastName,
+        firstname: req.body.firstname,
+        lastname: req.body.lastname,
         username: req.body.username,
         password: hash
       })
@@ -113,6 +120,11 @@ app.post('/user/new', (req, res) => {
       });
     });
   });
+});
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/gallery');
 });
 
 app.get('*', function(req, res){

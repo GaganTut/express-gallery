@@ -14,7 +14,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.TEXT,
       defaultValue: 'No Description Currently'
     },
-    author: {
+    username: {
       type: DataTypes.STRING,
       allowNull: false
     }

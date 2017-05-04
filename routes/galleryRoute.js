@@ -13,7 +13,7 @@ router.route('/')
   });
 
 router.route('/new')
-  .get((req, res) => {
+  .get(helper.checkAuth,(req, res) => {
     galleryFunctions.renderNewForm(req, res);
   });
 

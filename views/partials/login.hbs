@@ -1,19 +1,20 @@
 
 {{#unless login}}
   <div class="login-bar">
-    <form action="/login" method="post">
-      Username: <input type="text" name="username"><br>
-      Password: <input type="password" name="password"><br>
-      <input type="submit" value="Submit">
+    <form class='form-div' action="/login" method="post">
+      <div class="username-input">Username: <input type="text" name="username"></div>
+      <div class="password-input">Password: <input type="password" name="password"></div>
+      <div class="input-button"><input type="submit" value="Sign In"></div>
+      <a href="/login/new"><div class="new-user-button">Sign Up Now</div></a>
     </form>
-    <a href="/login/new">Create New User</a>
   </div>
 {{/unless}}
 
 {{#if login}}
   <div class="login-bar">
     <p>
-      Hi {{login.firstname}} {{login.lastname}}<br>
+      Hi {{login.firstname}}
     </p>
+    <a href="/logout">Log Out User</a>
   </div>
 {{/if}}

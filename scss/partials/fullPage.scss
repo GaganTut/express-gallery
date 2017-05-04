@@ -8,16 +8,16 @@ body {
   width: 100%;
 
   .main-page-header {
+    background-color: rgba(0,0,0, 0.2);
     border-top: dotted 1px black;
     display: flex;
     flex-direction: column;
     margin: 5% 0 1% 0;
-    padding: 2% 0 1% 0;
+    padding: 2% 0 2% 0;
     width: 80%;
 
     .header-text {
       display: flex;
-      padding: 0 0 3% 0;
       width: 100%;
 
       h1 {
@@ -36,13 +36,37 @@ body {
     }
   }
 
+  .login-bar {
+    background-color: rgba(0,0,0, 0.1);
+    margin: 0 0 1% 0;
+    padding: 1% 0;
+    width: 80%;
+
+    .form-div {
+      align-items: center;
+      display: flex;
+      justify-content: space-around;
+    }
+  }
+
   .header-photo {
     border-bottom: dotted 1px black;
+    margin-bottom: 2%;
+    padding-bottom: 1%;
     width: 80%;
 
     img {
       width: 100%;
     }
+  }
+
+  .notFound {
+    background-color: rgba(255,0, 0, 0.1);
+    font-size: 200%;
+    margin-bottom: 3%;
+    padding: 2% 0;
+    text-align: center;
+    width: 80%;
   }
 
   .allPhotos {
@@ -75,9 +99,27 @@ body {
     .addNew {
       background-color: rgba(255,255,255,0.5);
       font-size: 200%;
+      margin-bottom: 5%;
       padding: 2% 0;
       text-align: center;
       width: 100%;
+    }
+  }
+
+  .sub-titles {
+    font-size: 500%;
+    padding-bottom: 5%;
+    text-align: center;
+    width: 80%;
+  }
+
+  .newPage {
+    text-align: center;
+    width: 80%;
+
+    input {
+      font-size: 40px;
+      margin-bottom: 1%;
     }
   }
 }

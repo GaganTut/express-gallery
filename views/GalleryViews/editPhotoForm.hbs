@@ -4,13 +4,12 @@
 <div class="edit-page">
   <form action="/gallery/{{single.id}}?_method=PUT" method="post">
     Title: <input type="text" name="title" value='{{single.title}}'><br>
-    Author: <input type="text" name="author" value='{{single.author}}'><br>
     Description: <input type="textarea" name="description" value='{{single.description}}'><br>
     Image Link: <input type="textarea" name="imgUrl" value='{{single.imgUrl}}'><br>
     <input type="submit" value="Submit">
   </form>
 
-  <form action="/gallery/{{single.id}}?_method=DELETE" method="post">
+  <form action="/gallery/{{single.id}}?_method=DELEhhTE" method="post">
     Type ID to confirm delete: <input type="text" name="id"><br>
     <input type="submit" value="DELETE ARTICLE">
   </form>
