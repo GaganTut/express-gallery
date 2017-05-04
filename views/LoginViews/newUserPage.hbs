@@ -1,4 +1,4 @@
-<div class="new-user-title">
+<div class="sub-titles">
   <h1>Create Username and Password</h1>
 </div>
 
@@ -6,10 +6,17 @@
     <form action="/user/new" method="post">
       First Name: <input type="text" name="firstname"><br>
       Last Name: <input type="text" name="lastname"><br>
-      Username: <input type="text" name="username"><br>
-      Password: <input type="password" name="password" id="pass1"><br>
-      Confirm Password: <input type="password" name="passVerif" id="pass2" onkeyup="checkPass(); return false;"><br>
+      Username: <input type="text" name="username" placeholder="Must be 8+ Characters"><br>
+      Password: <input type="password" name="password" id="pass1" placeholder="Must be 8+ Characters"><br>
+      Confirm Password: <input type="password" name="passVerif" id="pass2" onkeyup="checkPass(); return false;" placeholder="Must be 8+ Characters"><br>
       <span id="confirmMessage" class="confirmMessage"></span>
         <input type="submit" value="Submit">
     </form>
 </div>
+
+{{#if error}}
+  <div class="error-message">
+
+      <h1 class="error">{{error}}</h1>
+  </div>
+{{/if}}

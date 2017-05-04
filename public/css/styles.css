@@ -136,6 +136,8 @@ body {
     body .newPage input {
       font-size: 40px;
       margin-bottom: 1%; }
+  body .new-user-page {
+    width: 80%; }
 
 body .single-view {
   display: flex;

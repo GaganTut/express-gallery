@@ -3,6 +3,7 @@ const path = require('path');
 const express = require('express');
 const galleryRoute = require('./routes/galleryRoute.js');
 const loginRoute = require('./routes/loginRoute.js');
+const customMiddleware = require('./customMiddleware/customMiddleware.js');
 const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
@@ -105,10 +106,9 @@ app.get('/',(req, res) => {
 });
 
 // new user section
-app.post('/user/new', (req, res) => {
+app.post('/user/new', customMiddleware.validateNewUser, (req, res) => {
   bcrypt.genSalt(saltRounds, function(err, salt) {
     bcrypt.hash(req.body.password, salt, function(err, hash) {
-      console.log(req.body);
       User.create({
         firstname: req.body.firstname,
         lastname: req.body.lastname,
