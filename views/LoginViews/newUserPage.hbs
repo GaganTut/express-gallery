@@ -9,14 +9,22 @@
       Username: <input type="text" name="username" placeholder="Must be 8+ Characters"><br>
       Password: <input type="password" name="password" id="pass1" placeholder="Must be 8+ Characters"><br>
       Confirm Password: <input type="password" name="passVerif" id="pass2" onkeyup="checkPass(); return false;" placeholder="Must be 8+ Characters"><br>
-      <span id="confirmMessage" class="confirmMessage"></span>
-        <input type="submit" value="Submit">
+      <span id="confirmMessage" class="confirmMessage"></span><br>
+      <input id='createUserBtn' type="submit" value="Submit">
     </form>
 </div>
 
 {{#if error}}
-  <div class="error-message">
-
+  <div class="error-message" id='error'>
       <h1 class="error">{{error}}</h1>
+      <script type="text/javascript">
+        setTimeout(() => {
+          let errorElem = document.getElementById('error');
+          errorElem.classList.add('hide');
+        }, 1000)
+        setTimeout(() => {
+          let errorElem = document.getElementById('error');
+          errorElem.style.display = 'none';
+        }, 3000)</script>
   </div>
 {{/if}}

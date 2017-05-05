@@ -1,7 +1,8 @@
 /*jshint esversion: 6*/
 const express = require('express');
-const galleryFunctions = require('./routeFunctions/galleryFunctions');
-const helper = require('./routeFunctions/helperFunctions');
+const galleryFunctions = require('./routeFunctions/galleryFunctions.js');
+const helper = require('./routeFunctions/helperFunctions.js');
+const customMiddleware = require('../customMiddleware/customMiddleware.js');
 const router = express.Router();
 
 router.route('/')
@@ -25,7 +26,7 @@ router.route('/:id')
   .get((req, res) => {
     galleryFunctions.renderSinglePhoto(req, res);
   })
-  .put(helper.checkAuth, (req,res) => {
+  .put(helper.checkAuth, customMiddleware.userPermission, (req,res) => {
     galleryFunctions.editPhoto(req, res);
   })
   .delete(helper.checkAuth, (req, res) => {

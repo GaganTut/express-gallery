@@ -6,10 +6,11 @@
     Title: <input type="text" name="title" value='{{single.title}}'><br>
     Description: <input type="textarea" name="description" value='{{single.description}}'><br>
     Image Link: <input type="textarea" name="imgUrl" value='{{single.imgUrl}}'><br>
+    <input type="hidden" name="UserId" value="{{single.UserId}}">
     <input type="submit" value="Submit">
   </form>
 
-  <form action="/gallery/{{single.id}}?_method=DELEhhTE" method="post">
+  <form action="/gallery/{{single.id}}?_method=DELETE" method="post">
     Type ID to confirm delete: <input type="text" name="id"><br>
     <input type="submit" value="DELETE ARTICLE">
   </form>

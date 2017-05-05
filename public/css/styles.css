@@ -137,7 +137,32 @@ body {
       font-size: 40px;
       margin-bottom: 1%; }
   body .new-user-page {
+    display: flex;
+    justify-content: center;
     width: 80%; }
+  body .login-page {
+    width: 80%; }
+  body .error-message {
+    background-color: rgba(0, 0, 0, 0.8);
+    border-radius: 10%;
+    color: rgba(255, 0, 0, 0.5);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 35%;
+    width: 30%;
+    height: 30%;
+    opacity: 1;
+    transition: opacity 4s linear;
+    -webkit-transition: opacity 2s ease-in-out; }
+    body .error-message.hide {
+      opacity: 0; }
+    body .error-message .error {
+      font-size: 200%;
+      text-align: center;
+      width: 100%; }
 
 body .single-view {
   display: flex;

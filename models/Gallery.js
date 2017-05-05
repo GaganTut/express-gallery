@@ -13,10 +13,17 @@ module.exports = function(sequelize, DataTypes) {
     description: {
       type: DataTypes.TEXT,
       defaultValue: 'No Description Currently'
-    },
-    username: {
-      type: DataTypes.STRING,
-      allowNull: false
+    }
+  }, {
+    classMethods: {
+      associate: function(models) {
+        Gallery.belongsTo(models.User, {
+          onDelete: "CASCADE",
+          foreignKey: {
+            allowNull: false
+          }
+        });
+      }
     }
   });
 

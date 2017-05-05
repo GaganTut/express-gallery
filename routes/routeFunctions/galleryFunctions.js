@@ -1,4 +1,5 @@
 /*jshint esversion: 6*/
+
 const galDB = require('./DBFunctions.js');
 const helper = require('./helperFunctions.js');
 
@@ -6,7 +7,6 @@ module.exports = (() => {
   const renderFullGallery = (req, res) => {
     galDB.getAllPhotos()
       .then(data => {
-        console.log(req.isAuthenticated());
         res.render('home', {photos: helper.createObjectList(data), login: helper.createLoginObject(req)});
       })
       .catch(err => {

@@ -14,7 +14,7 @@ module.exports = (() => {
       title: data[0].dataValues.title,
       imgUrl: data[0].dataValues.imgUrl,
       description: data[0].dataValues.description,
-      username: data[0].dataValues.username
+      UserId: data[0].dataValues.UserId
     };
   };
   const prepareBodyRender = (data) => {
@@ -23,7 +23,7 @@ module.exports = (() => {
       title: data.title,
       imgUrl: data.imgUrl,
       description: data.description,
-      username: data.username
+      UserId: data.UserId
     };
   };
 
@@ -37,7 +37,6 @@ module.exports = (() => {
 
   const createLoginObject = (req) => {
     if (req.isAuthenticated()) {
-      console.log(req.user);
       return {
         firstname: req.user.firstname
       };
@@ -51,7 +50,7 @@ module.exports = (() => {
       title: req.body.title,
       imgUrl: req.body.imgUrl,
       description: req.body.description,
-      username: req.user.username
+      UserId: req.user.id
     };
   };
 

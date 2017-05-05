@@ -9,7 +9,17 @@ module.exports = (() => {
     }
   };
 
+  const userPermission = (req, res, next) => {
+    console.log(req.user.id, req.body);
+    if (Number(req.user.id) === Number(req.body.UserId)) {
+      next();
+    } else {
+      res.redirect('/gallery');
+    }
+  };
+
   return {
-    validateNewUser
+    validateNewUser,
+    userPermission
   };
 })();
